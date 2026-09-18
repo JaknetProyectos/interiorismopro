@@ -1,0 +1,379 @@
+{
+  "ContactPage": {
+    "heroEyebrow": "Contáctanos",
+    "heroTitle": "Hagamos realidad tu espacio ideal",
+    "heroDescription": "Compártenos tu idea y te acompañaremos en cada etapa para convertir tu espacio en un lugar funcional, elegante y único.",
+    "infoTitle": "Comunícate con nosotros",
+    "phoneLabel": "Número telefónico",
+    "phoneValue": "+52 1 55 9129 4026",
+    "emailLabel": "Correo electrónico",
+    "emailValue": "informacion@decoramoderna.com",
+    "addressLabel": "Ubicación",
+    "addressValue": "Avenida Presidente Masaryk, N° 178, Dep. 303, Colonia Polanco V Seccion, Alcaldia Miguel Hidalgo, C.p. 11560, Entidad Federativa Ciudad De México.",
+    "hoursLabel": "Horario",
+    "hoursValue": "Lunes a Viernes: 9:00 AM - 6:00 PM",
+    "formTitle": "Déjanos tu mensaje",
+    "namePlaceholder": "Escribe tu nombre",
+    "emailPlaceholder": "correo@ejemplo.com",
+    "phonePlaceholder": "+52 1 55...",
+    "sendButton": "Enviar",
+    "sendingButton": "Enviando información...",
+    "defaultSubject": "Mensaje desde el sitio web"
+  },
+  "Header": {
+    "home": "Principal",
+    "services": "Soluciones",
+    "contact": "Contáctanos",
+    "cart": "Mi carrito",
+    "emptyCart": "No hay productos en tu carrito",
+    "total": "Monto total",
+    "checkout": "Continuar compra",
+    "contactLabel": "Contácto"
+  },
+  "CheckoutPage": {
+    "backToServices": "Regresar a servicios",
+    "checkoutBadge": "Checkout",
+    "cartTitle": "Resumen de compra",
+    "emptyCartTitle": "Tu carrito no tiene productos",
+    "emptyCartDescription": "Explora nuestros servicios y encuentra la mejor opción para ti.",
+    "emptyCartButton": "Explorar servicios",
+    "summaryAndPaymentTitle": "Resumen y método de pago",
+    "subtotal": "Subtotal",
+    "vat": "IVA (16%)",
+    "total": "Total a pagar",
+    "order": "Pedido",
+    "customerDataTitle": "Información del cliente",
+    "billingAddressTitle": "Datos de facturación",
+    "cardDataTitle": "Información de tarjeta",
+    "nameLabel": "Nombre",
+    "middleNameLabel": "Segundo nombre",
+    "lastNameLabel": "Apellido(s)",
+    "emailLabel": "Correo electrónico",
+    "phoneLabel": "Número telefónico",
+    "cityLabel": "Ciudad",
+    "stateLabel": "Estado",
+    "countryLabel": "País",
+    "addressLabel": "Domicilio",
+    "postalCodeLabel": "Código postal",
+    "cardNumberLabel": "Tarjeta",
+    "cardNameLabel": "Titular de la tarjeta",
+    "monthLabel": "Mes",
+    "yearLabel": "Año",
+    "cvvLabel": "Código CVV",
+    "optional": "(opcional)",
+    "namePlaceholder": "Nombre",
+    "middleNamePlaceholder": "Segundo nombre",
+    "lastNamePlaceholder": "Apellido(s)",
+    "emailPlaceholder": "Correo electrónico",
+    "phonePlaceholder": "Número telefónico",
+    "cityPlaceholder": "Ciudad",
+    "statePlaceholder": "Estado",
+    "countryPlaceholder": "País",
+    "addressPlaceholder": "Domicilio",
+    "postalCodePlaceholder": "Código postal",
+    "cardNumberPlaceholder": "Número de tarjeta",
+    "cardNamePlaceholder": "Nombre del titular",
+    "monthPlaceholder": "MM",
+    "yearPlaceholder": "AA",
+    "cvvPlaceholder": "CVV",
+    "processing": "Procesando pago...",
+    "proceedToPayment": "Continuar al pago",
+    "securePayment": "Pago protegido y seguro",
+    "paymentMethodsAlt": "Formas de pago aceptadas",
+    "plusVat": "+ IVA",
+    "required": "Este campo es requerido.",
+    "invalidEmail": "Ingresa un correo válido.",
+    "invalidPhone": "Ingresa un número válido.",
+    "invalidPostalCode": "Ingresa un código postal correcto.",
+    "invalidCardNumber": "Número de tarjeta inválido.",
+    "invalidMonth": "El mes ingresado no es válido.",
+    "invalidYear": "Ingresa un año de 2 dígitos.",
+    "invalidCVV": "Código CVV incorrecto.",
+    "emptyCartAlertTitle": "Carrito vacío",
+    "emptyCartAlertMessage": "Debes agregar un servicio antes de continuar.",
+    "emptyCartConfirm": "Aceptar",
+    "reviewDataAlertTitle": "Verifica tu información",
+    "reviewDataAlertMessage": "Existen datos incompletos o errores en la información de pago.",
+    "reviewDataConfirm": "Editar",
+    "paymentApprovedTitle": "Pago exitoso",
+    "paymentApprovedMessage": "Tu pago fue realizado correctamente. Recibirás tu comprobante por correo.",
+    "paymentApprovedMailIssueMessage": "El pago fue exitoso, pero hubo un inconveniente al enviar el correo de confirmación. Nos pondremos en contacto contigo.",
+    "understood": "Comprendido",
+    "great": "Perfecto",
+    "retry": "Intentar nuevamente",
+    "mailSendError": "No se pudo enviar el correo",
+    "paymentFailedTitle": "No fue posible completar el pago",
+    "paymentFailedFallback": "La transacción no pudo procesarse."
+  },
+  "CustomProduct": {
+    "title": "Proyecto a medida",
+    "subtitle": "Añade tu cotización personalizada y continúa el proceso de compra de manera rápida y segura.",
+    "badge": "A medida",
+    "infoTitle": "Cada espacio tiene su esencia",
+    "infoText": "Este servicio está pensado para proyectos personalizados fuera del catálogo. Ingresa la cotización acordada previamente y continúa con tu compra.",
+    "steps": {
+      "folio": "Ingresa el folio proporcionado",
+      "amount": "Especifica el monto acordado",
+      "details": "Añade información adicional si lo deseas"
+    },
+    "formTitle": "Agregar proyecto personalizado",
+    "placeholders": {
+      "folio": "Folio de cotización",
+      "total": "Monto antes de impuestos",
+      "name": "Nombre",
+      "lastName": "Apellidos",
+      "email": "Correo electrónico",
+      "description": "Detalles del proyecto"
+    },
+    "button": "Añadir al carrito",
+    "productName": "Proyecto a medida",
+    "alerts": {
+      "requiredFields": "Completa los campos requeridos",
+      "addedToCart": "Proyecto agregado al carrito"
+    }
+  },
+  "Footer": {
+    "titles": {
+      "services": "Nuestros servicios",
+      "legal": "Información legal",
+      "contact": "Datos de contacto"
+    },
+    "services": [
+      "Asesoría virtual en diseño",
+      "Interiorismo por espacios",
+      "Diseño integral en línea",
+      "Home staging digital",
+      "Diseño para negocios y oficinas",
+      "Renderizados 3D y recorridos virtuales",
+      "Asesoría DIY para decoración"
+    ],
+    "legal": [
+      {
+        "name": "Términos y Condiciones de Uso",
+        "href": "/legal/terminos"
+      },
+      {
+        "name": "Política de Cancelaciones y Reembolsos",
+        "href": "/legal/reembolsos"
+      },
+      {
+        "name": "Aviso de Privacidad Integral",
+        "href": "/legal/privacidad"
+      }
+    ],
+    "contact": {
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "address": "Ubicación",
+      "fullAddress": "Avenida Presidente Masaryk, N 178, Dep. 303, Colonia Polanco V Sección, Alcaldía Miguel Hidalgo, Cp 11560, Ciudad de México."
+    },
+    "bottom": {
+      "tagline": "Interiorismo y decoración online",
+      "rights": "© 2026 DecoraModerna. Todos los derechos reservados."
+    }
+  },
+  "Hero": {
+    "title": {
+      "line1": "Todo lo que necesitas para renovar",
+      "line2": "tu espacio"
+    },
+    "defaultSubject": "Consulta desde sección principal",
+    "form": {
+      "title": "Agenda tu asesoría de diseño cuando prefieras",
+      "placeholders": {
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "subject": "Asunto",
+        "message": "Escribe tu mensaje"
+      },
+      "submit": "Enviar mensaje",
+      "sending": "Enviando..."
+    }
+  },
+  "about": {
+    "title": "Creando espacios con experiencia\n desde 2023",
+    "description": "Desarrollamos interiores personalizados donde estilo, armonía y funcionalidad se combinan para crear ambientes únicos.",
+    "features": {
+      "fast": {
+        "title": "Asesoría ágil y profesional",
+        "description": "Recibe orientación especializada en interiorismo desde casa. Programamos tu sesión de forma sencilla y puntual."
+      },
+      "designers": {
+        "title": "Diseñadores expertos y creativos",
+        "description": "Nuestro equipo fusiona creatividad, experiencia y funcionalidad para desarrollar propuestas auténticas y personalizadas."
+      },
+      "attention": {
+        "title": "Atención cercana y flexible",
+        "description": "Nos adaptamos a tus horarios y requerimientos para acompañarte durante todo tu proyecto."
+      }
+    }
+  },
+  "workProcess": {
+    "title": "Cómo trabajamos",
+    "subtitle": "Diseñar tu espacio es fácil, práctico y totalmente online.",
+    "stepLabel": "Etapa {number}",
+    "steps": {
+      "step1": {
+        "title": "Reserva tu sesión",
+        "description": "Selecciona la fecha y hora ideales para ti. Te acompañaremos desde el primer contacto hasta la entrega final."
+      },
+      "step2": {
+        "title": "Comparte tus ideas",
+        "description": "Analizamos tus gustos, necesidades y presupuesto para crear una propuesta alineada con tu estilo."
+      },
+      "step3": {
+        "title": "Recibe tu propuesta",
+        "description": "Obtén una propuesta visual con distribución, colores y recomendaciones de mobiliario hasta lograr el resultado perfecto."
+      }
+    }
+  },
+  "faq": {
+    "title": "Empieza con nuestros planes accesibles",
+    "subtitle": "Selecciona el paquete ideal para tu proyecto y transforma tu espacio con ayuda profesional en línea.",
+    "items": {
+      "q1": {
+        "question": "¿Es posible reservar más de una asesoría?",
+        "answer": "Sí. Puedes contratar sesiones adicionales según las necesidades o avances de tu proyecto."
+      },
+      "q2": {
+        "question": "¿El costo cambia dependiendo del horario?",
+        "answer": "No. Todos nuestros paquetes tienen precios fijos sin cargos extra por horarios o días."
+      },
+      "q3": {
+        "question": "¿Atienden los fines de semana?",
+        "answer": "Sí. Tenemos horarios limitados sábados y domingos para quienes prefieren atención fuera de horario laboral."
+      },
+      "q4": {
+        "question": "¿Qué formas de pago aceptan?",
+        "answer": "Aceptamos tarjetas Visa y Mastercard, tanto de crédito como débito."
+      }
+    },
+    "cta": {
+      "title": "Servicio personalizado",
+      "subtitle": "¿Quieres renovar tu espacio y no sabes cómo comenzar?",
+      "primary": "Pedir cotización",
+      "secondary": "Ver servicios",
+      "description": "Cada espacio requiere una solución distinta, por eso adaptamos nuestros servicios a tu estilo, objetivos y presupuesto."
+    }
+  },
+  "servicesSection": {
+    "eyebrow": "Nuestros servicios",
+    "title": "Servicios integrales de diseño",
+    "subtitle": "Desarrollamos espacios funcionales y personalizados para cada tipo de proyecto.",
+    "viewAll": "Ver todos",
+    "selectedService": "Servicio elegido",
+    "contactLabel": "Contacto",
+    "items": {
+      "residential": {
+        "title": "Interiorismo residencial",
+        "description": "Diseñamos espacios que transmiten tu personalidad, integrando confort, funcionalidad y estilo en cada ambiente.",
+        "features": {
+          "f1": "Consultoría online personalizada",
+          "f2": "Distribución y ambientación completa",
+          "f3": "Selección de mobiliario, colores y texturas",
+          "f4": "Visualización previa del resultado"
+        }
+      },
+      "commercial": {
+        "title": "Diseño comercial",
+        "description": "Creamos ambientes atractivos y funcionales que fortalecen la identidad de tu marca y la experiencia de tus clientes.",
+        "features": {
+          "f1": "Diseño conceptual de espacios",
+          "f2": "Interiorismo para oficinas y negocios",
+          "f3": "Optimización de iluminación y circulación",
+          "f4": "Propuestas ajustadas a tu presupuesto"
+        }
+      },
+      "online": {
+        "title": "Decoración virtual",
+        "description": "Obtén asesoría profesional desde casa mediante sesiones online personalizadas.",
+        "features": {
+          "f1": "Consultas completamente online",
+          "f2": "Moodboards y propuestas creativas",
+          "f3": "Sugerencias de materiales y productos",
+          "f4": "Acompañamiento durante todo el proceso"
+        }
+      },
+      "furniture": {
+        "title": "Muebles y acabados",
+        "description": "Te orientamos en la elección de materiales, acabados y piezas que aporten equilibrio y estilo a tus espacios.",
+        "features": {
+          "f1": "Selección personalizada de mobiliario",
+          "f2": "Asesoría en acabados y texturas",
+          "f3": "Guía en funcionalidad y medidas",
+          "f4": "Recomendación de proveedores y marcas"
+        }
+      },
+      "lighting": {
+        "title": "Color e iluminación",
+        "description": "Creamos atmósferas equilibradas utilizando combinaciones de luz y color que aportan bienestar y estética.",
+        "features": {
+          "f1": "Evaluación de iluminación natural y artificial",
+          "f2": "Paletas adaptadas a tu estilo",
+          "f3": "Diseño de iluminación funcional y decorativa",
+          "f4": "Recomendaciones técnicas y visuales"
+        }
+      }
+    }
+  },
+  "inspirationSection": {
+    "eyebrow": "Ideas e inspiración",
+    "title": "Encuentra inspiración para tu espacio",
+    "subtitle": "Descubre estilos y conceptos que te ayudarán a visualizar tu próximo ambiente ideal.",
+    "items": {
+      "residential": {
+        "title": "Interiorismo residencial",
+        "description": "Creamos espacios que expresan tu personalidad integrando estilo, confort y funcionalidad."
+      },
+      "commercial": {
+        "title": "Diseño comercial",
+        "description": "Desarrollamos espacios atractivos y prácticos que fortalecen la identidad de tu negocio."
+      },
+      "online": {
+        "title": "Decoración virtual",
+        "description": "Obtén acompañamiento profesional sin salir de casa con sesiones online personalizadas."
+      },
+      "furniture": {
+        "title": "Muebles y materiales",
+        "description": "Te ayudamos a elegir acabados y mobiliario que aporten armonía y durabilidad."
+      }
+    }
+  },
+  "ctaSection": {
+    "eyebrow": "Empieza hoy",
+    "title": "¿Listo para renovar tu espacio?",
+    "line1": "Nosotros te ayudamos a lograrlo.",
+    "line2": "Diseña el ambiente perfecto para tu hogar o negocio con nuestra asesoría online.",
+    "button": "Contáctanos",
+    "phoneLabel": "Llámanos al"
+  },
+  "servicesPage": {
+    "heroTitle": "Servicios online de interiorismo",
+    "introEyebrow": "Servicios",
+    "introTitle": "Soluciones completas de diseño",
+    "introSubtitle": "Creamos espacios funcionales y personalizados adaptados a cada proyecto.",
+    "viewAll": "Explorar todo",
+    "serviceBadge": "Categoría",
+    "idealForLabel": "Perfecto para:",
+    "vat": "+ IVA",
+    "addButton": "Añadir",
+    "personalized": {
+      "title": "Proyecto personalizado",
+      "line1": "¿Quieres transformar tu espacio y necesitas orientación?",
+      "line2": "Cada proyecto es distinto, por eso diseñamos soluciones a medida adaptadas a tu estilo, necesidades y presupuesto.",
+      "questionLabel": "¿Qué proyecto tienes en mente?",
+      "questionBody": "Casa, oficina, negocio, home staging o renovación DIY... comparte tu idea y encontraremos la mejor solución juntos.",
+      "addToCart": "Agregar al carrito",
+      "requestQuote": "Solicitar presupuesto"
+    },
+    "cta": {
+      "eyebrow": "Último paso",
+      "title": "¿Listo para transformar tu espacio?",
+      "line1": "Hagámoslo realidad juntos.",
+      "line2": "Agenda tu asesoría online y comienza a crear el espacio que siempre imaginaste.",
+      "contactButton": "Contáctanos",
+      "phoneLabel": "Comunícate",
+      "imageAlt": "Elemento gráfico decorativo"
+    }
+  }
+}
