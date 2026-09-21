@@ -11,6 +11,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Toaster } from 'sonner';
+import { LocaleProvider } from '@/context/LangContext';
 
 export default async function LocaleLayout({
   children,
@@ -35,17 +36,19 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <ClientBody>
-        <CartProvider>
-          <AlertProvider>
-            <CartDrawer />
-            <Header />
-            <main className='min-h-screen'>
-              {children}
-            </main>
-            <Footer />
-            <Toaster />
-          </AlertProvider>
-        </CartProvider>
+        <LocaleProvider>
+          <CartProvider>
+            <AlertProvider>
+              <CartDrawer />
+              <Header />
+              <main className='min-h-screen'>
+                {children}
+              </main>
+              <Footer />
+              <Toaster />
+            </AlertProvider>
+          </CartProvider>
+        </LocaleProvider>
       </ClientBody>
       {gtmId && <GoogleTagManager gtmId={gtmId} />}
     </NextIntlClientProvider>

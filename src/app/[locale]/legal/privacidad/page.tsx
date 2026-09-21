@@ -188,11 +188,9 @@ export default function LegalPage() {
 
     return (
         <div className="min-h-screen flex flex-col bg-white">
-            <Header />
             <main className="flex-grow container mx-auto px-6 py-20 max-w-4xl">
                 {locale === "es" ? <LegalEs /> : <LegalEn />}
             </main>
-            <Footer />
         </div>
     );
 }

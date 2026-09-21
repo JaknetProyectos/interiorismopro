@@ -8,6 +8,7 @@ import { ServiceOption } from "@/types/service-option";
 export interface CartItem {
   id: string; // ID de la variante (variantId)
   quantity: number;
+  customPrice?: number; // Permite almacenar el precio personalizado si aplica
   meta?: {
     folio?: string;
     nombre?: string;
@@ -27,7 +28,7 @@ export interface EnrichedCartItem extends CartItem {
 
 interface CartContextType {
   items: EnrichedCartItem[];
-  addItem: (item: Omit<CartItem, "quantity"> & { quantity?: number }) => void;
+  addItem: (item: Omit<CartItem, "quantity"> & { quantity?: number; customPrice?: number }) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -40,23 +41,32 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [rawItems, setRawItems] = useState<CartItem[]>([]);
   const { services } = useServices();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const CART_STORAGE_KEY = "decora_cart";
 
-  // Cargar carrito persistido al montar
   useEffect(() => {
-    const saved = localStorage.getItem("cart_items");
-    if (saved) {
-      try {
-        setRawItems(JSON.parse(saved));
-      } catch (e) {
-        console.error("Error al cargar el carrito:", e);
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      if (saved) {
+        setRawItems(JSON.parse(saved) as CartItem[]);
       }
+    } catch (error) {
+      console.error("Error loading cart from storage:", error);
+    } finally {
+      setIsLoaded(true);
     }
   }, []);
 
   // Guardar en localStorage ante cambios
   useEffect(() => {
-    localStorage.setItem("cart_items", JSON.stringify(rawItems));
-  }, [rawItems]);
+    if (!isLoaded) return;
+
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(rawItems));
+    } catch (error) {
+      console.error("Error saving cart to storage:", error);
+    }
+  }, [rawItems, isLoaded]);
 
   // Enriquecer items con traducciones dinámicas según el locale actual
   const items = useMemo(() => {
@@ -73,7 +83,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           return false;
         }) || null;
 
-      const price = selectedOption ? (selectedOption as ServiceOption).price : 0;
+      // Si existe customPrice lo respeta; si no, toma el de la opción traducida o 0
+      const price =
+        raw.customPrice !== undefined && raw.customPrice > 0
+          ? raw.customPrice
+          : selectedOption
+            ? (selectedOption as ServiceOption).price
+            : 0;
+
       const subtotal = price * raw.quantity;
 
       return {
@@ -86,15 +103,25 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     });
   }, [rawItems, services]);
 
-  const addItem = (newItem: Omit<CartItem, "quantity"> & { quantity?: number }) => {
+  const addItem = (
+    newItem: Omit<CartItem, "quantity"> & { quantity?: number; customPrice?: number }
+  ) => {
     const qty = newItem.quantity ?? 1;
+
     setRawItems((prev) => {
-      const existing = prev.find((i) => i.id === newItem.id);
+      // Si tiene precio personalizado, distinguimos por ID y customPrice para no agrupar montos distintos
+      const existing = prev.find(
+        (i) => i.id === newItem.id && i.customPrice === newItem.customPrice
+      );
+
       if (existing) {
         return prev.map((i) =>
-          i.id === newItem.id ? { ...i, quantity: i.quantity + qty } : i
+          i.id === newItem.id && i.customPrice === newItem.customPrice
+            ? { ...i, quantity: i.quantity + qty }
+            : i
         );
       }
+
       return [...prev, { ...newItem, quantity: qty }];
     });
   };

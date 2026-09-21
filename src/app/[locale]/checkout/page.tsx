@@ -19,6 +19,7 @@ import {
 import { EmailItem } from "@/types/cart-item";
 import { ConfirmRequestBody } from "../api/confirm/route";
 import { formatPrice } from "@/lib/format-price";
+import Image from "next/image";
 
 // 1. Array de cupones reutilizable
 interface Coupon {
@@ -427,7 +428,7 @@ export default function CheckoutPage() {
               ) : (
                 <>
                   <Lock className="w-5 h-5" />
-                  Pagar { formatPrice(finalTotal)} MXN
+                  Pagar {formatPrice(finalTotal)} MXN
                 </>
               )}
             </button>
@@ -435,8 +436,25 @@ export default function CheckoutPage() {
             <p className="text-xs text-center text-gray-400">
               Al hacer clic aceptaste nuestros términos y políticas de privacidad.
             </p>
+
+            <div className="flex flex-row justify-center gap-6 p-6">
+              <Image
+                src="/etomin.png"
+                alt={"etomin"}
+                width={120}
+                height={30}
+              />
+              <Image
+                src="/secure-payment.png"
+                alt={"secure"}
+                width={150}
+                height={20}
+              />
+            </div>
           </div>
         </div>
+
+
 
       </form>
     </div>

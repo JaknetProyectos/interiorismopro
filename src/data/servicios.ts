@@ -2,6 +2,18 @@ import { Service } from "@/types/service";
 
 export const servicesEnglish: Service[] = [
     {
+        id: "custom",
+        title: "Custom Service",
+        idealFor: "Clients with specific requirements or special projects needing flexible pricing.",
+        options: [
+            {
+                id: "custom-product",
+                price: 0
+            }
+        ],
+        features: ["Set the exact amount for your project or service by adjusting the price as agreed with our team."],
+    },
+    {
         id: "virtual-consulting",
         title: "Virtual design consulting",
         idealFor: "Those who want quick ideas without a complete redesign.",
@@ -201,5 +213,17 @@ export const servicesSpanish: Service[] = [
             "Instrucciones paso a paso para pintar, empapelar, reacomodar o decorar.",
             "Lista de materiales económicos.",
         ],
+    },
+    {
+        id: "custom",
+        title: "Producto / Servicio a la Medida",
+        idealFor: "Clientes con requerimientos específicos o proyectos especiales que requieren una cotización flexible.",
+        options: [
+            {
+                id: "custom-product",
+                price: 0
+            }
+        ],
+        features: ["Define el monto exacto de tu proyecto o servicio ajustando el precio según lo acordado con nuestro equipo."],
     },
 ];

@@ -67,7 +67,7 @@ export default function FAQSection() {
         </div>
 
         {/* Personalized CTA Card */}
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8 text-center relative overflow-hidden">
+        <div className="mt-16   bg-gray-50 rounded-2xl p-8 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal to-navy" />
 
           <h3 className="text-2xl font-bold text-navy mb-2">
@@ -79,12 +79,12 @@ export default function FAQSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href={"/contact"}>
-              <button className="bg-[#341f97] text-white px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
+              <button className="bg-[#341f97] rounded-xl  text-white px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
                 {t("cta.primary")}
               </button>
             </Link>
             <Link href={"/services"}>
-              <button className="btn-navy px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
+              <button className="btn-navy  rounded-xl px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
                 {t("cta.secondary")}
               </button>
             </Link>

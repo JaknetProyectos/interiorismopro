@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
-import  Header  from "@/components/Header";
-import  Footer  from "@/components/Footer";
-import { FileText, User, Mail, Hash, DollarSign } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { FileText, User, Mail, Hash, DollarSign, FolderOpenIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useAlert } from "@/context/AlertContext";
 
 export default function CustomProductPage() {
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
   const t = useTranslations("CustomProduct");
   const { showAlert } = useAlert()
 
@@ -38,18 +38,17 @@ export default function CustomProductPage() {
       return;
     }
 
-    addToCart({
-      id: `custom-${Date.now()}`,
-      name: t("productName"),
-      price: Number(form.total),
-      description: form.descripcion,
+
+    addItem({
+      id: `custom-product`,
+      customPrice: Number(form.total),
       meta: {
+        apellidos: form.nombre,
+        descripcion: form.descripcion,
+        email: form.email,
         folio: form.folio,
         nombre: form.nombre,
-        apellidos: form.apellidos,
-        email: form.email,
-        descripcion: form.descripcion,
-      },
+      }
     });
 
     showAlert({
@@ -72,7 +71,6 @@ export default function CustomProductPage() {
 
   return (
     <div>
-      <Header />
 
       <main className="min-h-screen bg-cream pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -207,7 +205,7 @@ export default function CustomProductPage() {
         </div>
       </main>
 
-      <Footer />
+
     </div>
   );
 }

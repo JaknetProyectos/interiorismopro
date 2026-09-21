@@ -4,6 +4,7 @@ import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { Trash2, ShoppingBag, ArrowRight, Plus, Minus } from "lucide-react"; // Opcional, o usa SVGs nativos
 import { formatPrice } from "@/lib/format-price";
+import Image from "next/image";
 
 export default function CartPage() {
   const { items, total, removeItem, updateQuantity, itemCount } = useCart();
@@ -141,6 +142,21 @@ export default function CartPage() {
           <p className="text-xs text-center text-gray-400 mt-2">
             🔒 Transacción segura y protegida. Cupones disponibles en el siguiente paso.
           </p>
+
+          <div className="flex flex-row justify-center gap-6 p-6">
+            <Image
+              src="/etomin.png"
+              alt={"etomin"}
+              width={120}
+              height={30}
+            />
+            <Image
+              src="/secure-payment.png"
+              alt={"secure"}
+              width={150}
+              height={20}
+            />
+          </div>
         </div>
       </div>
     </div>

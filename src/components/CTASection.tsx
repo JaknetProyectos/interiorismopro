@@ -8,50 +8,51 @@ export default function CTASection() {
   const t = useTranslations("ctaSection");
 
   return (
-    <section className="py-20 px-4 md:px-8 bg-white border-t border-[#341f97]">
+    <section className="py-20 px-4 md:px-8 bg-[#ffeaa7]">
       <div className="max-w-5xl mx-auto">
 
-        <div className="border border-[#341f97] bg-[#F8EFBA] p-8 md:p-12">
+        {/* Tarjeta principal blanca redondeada */}
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100">
 
-          {/* Content */}
+          {/* Contenido */}
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#ee5253] mb-4">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#ff7675] mb-4">
               {t("eyebrow")}
             </p>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#341f97] mb-4 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4 leading-tight tracking-tight">
               {t("title")}
             </h2>
 
-            <p className="text-[#341f97] mb-2">
+            <p className="text-slate-700 font-medium mb-2">
               {t("line1")}
             </p>
 
-            <p className="text-sm text-[#341f97] leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               {t("line2")}
             </p>
           </div>
 
-          {/* Actions */}
+          {/* Acciones */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
 
             <Link href={"/contact"}>
-              <button className="px-8 py-3 bg-[#341f97] text-white font-semibold uppercase tracking-wider text-sm hover:bg-[#2c187e] transition-colors">
+              <button className="px-8 py-4 bg-[#55efc4] text-slate-900 font-extrabold uppercase tracking-wider text-sm rounded-full hover:bg-[#00cec9] hover:text-white transition-all duration-300 active:scale-95 shadow-sm">
                 {t("button")}
               </button>
             </Link>
 
-            <div className="flex items-center gap-4 border border-[#341f97] px-4 py-3 bg-white">
+            <div className="flex items-center gap-4 px-6 py-3 bg-[#ffeaa7]/30 rounded-2xl border border-[#ffeaa7]">
 
-              <div className="w-10 h-10 flex items-center justify-center border border-[#341f97] bg-[#F8EFBA]">
-                <Phone className="w-5 h-5 text-[#341f97]" />
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#55efc4] text-slate-900 shrink-0">
+                <Phone className="w-5 h-5" />
               </div>
 
               <div className="text-left">
-                <p className="text-xs uppercase tracking-[0.15em] text-[#ee5253]">
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#ff7675]">
                   {t("phoneLabel")}
                 </p>
-                <p className="font-semibold text-[#341f97]">
+                <p className="font-extrabold text-slate-900">
                   +52 1 55 9129 4026
                 </p>
               </div>
