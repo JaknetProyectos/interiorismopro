@@ -79,12 +79,12 @@ export default function FAQSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href={"/contact"}>
-              <button className="bg-[#341f97] rounded-xl  text-white px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
+              <button className="bg-[#341f97] rounded-xl  text-white px-6 py-3 font-semibold uppercase tracking-wider text-sm">
                 {t("cta.primary")}
               </button>
             </Link>
             <Link href={"/services"}>
-              <button className="btn-navy  rounded-xl px-6 py-3 rounded-lg font-semibold uppercase tracking-wider text-sm">
+              <button className="btn-navy  rounded-xl px-6 py-3 font-semibold uppercase tracking-wider text-sm">
                 {t("cta.secondary")}
               </button>
             </Link>

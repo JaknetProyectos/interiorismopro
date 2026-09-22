@@ -5,7 +5,7 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const EMAIL_BANNER =
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-const EMAIL_SUPPORT = "informacion@decoramoderna.com";
+const EMAIL_SUPPORT = "cuentanos@interiorismopro.com";
 const EMAIL_LOGO = "https://vexora.com.mx/title.png";
 
 export interface EmailItem {
@@ -191,14 +191,14 @@ export async function POST(req: NextRequest) {
 
     await Promise.all([
       resend.emails.send({
-        from: "DecoraModerna <informacion@decoramoderna.com>",
+        from: "InteriorismoPro <cuentanos@interiorismopro.com>",
         to: body.customer.email,
         subject: `Confirmación de compra - ${body.orderId}`,
         html: customerHTML,
       }),
       resend.emails.send({
-        from: "DecoraModerna <informacion@decoramoderna.com>",
-        to: "informacion@decoramoderna.com",
+        from: "InteriorismoPro <cuentanos@interiorismopro.com>",
+        to: "cuentanos@interiorismopro.com",
         subject: `Nueva venta - ${body.orderId}`,
         html: businessHTML,
       }),

@@ -111,7 +111,7 @@ export default function Footer() {
                   </p>
                 </div>
                 <p className="text-sm font-semibold text-white break-all">
-                  informacion@decoramoderna.com
+                  cuentanos@interiorismopro.com
                 </p>
               </div>
 

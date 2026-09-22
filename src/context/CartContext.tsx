@@ -42,7 +42,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [rawItems, setRawItems] = useState<CartItem[]>([]);
   const { services } = useServices();
   const [isLoaded, setIsLoaded] = useState(false);
-  const CART_STORAGE_KEY = "decora_cart";
+  const CART_STORAGE_KEY = "interiorismopro_cart";
 
   useEffect(() => {
     try {

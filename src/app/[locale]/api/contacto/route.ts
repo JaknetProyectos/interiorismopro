@@ -54,8 +54,8 @@ export async function POST(req: Request) {
     `;
 
     await resend.emails.send({
-      from: "DecoraModerna <informacion@decoramoderna.com>",
-      to: ["informacion@decoramoderna.com"],
+      from: "InteriorismoPro <cuentanos@interiorismopro.com>",
+      to: ["cuentanos@interiorismopro.com"],
       subject: `Nuevo contacto: ${asunto}`,
       html: adminHTML,
     });
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
         </h2>
 
         <p style="color:#475569;margin-bottom:20px">
-          Hola <strong>${nombre}</strong>, gracias por contactar a <strong>DecoraModerna</strong>.
+          Hola <strong>${nombre}</strong>, gracias por contactar a <strong>InteriorismoPro</strong>.
           Nuestro equipo revisará tu solicitud y te responderá lo antes posible.
         </p>
 
@@ -92,7 +92,7 @@ export async function POST(req: Request) {
 
         <div style="margin-top:30px;padding-top:20px;border-top:1px solid #e5e7eb">
           <p style="margin:0;font-size:14px;color:#64748b">
-            — Equipo DecoraModerna
+            — Equipo InteriorismoPro
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
     `;
 
     await resend.emails.send({
-      from: "DecoraModerna <informacion@decoramoderna.com>",
+      from: "InteriorismoPro <cuentanos@interiorismopro.com>",
       to: [email],
       subject: "Hemos recibido tu mensaje",
       html: customerHTML,

@@ -4,11 +4,11 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "DecoraModerna | Diseño de Interiores Online",
-    template: "%s | DecoraModerna",
+    default: "InteriorismoPro | Diseño de Interiores Online",
+    template: "%s | InteriorismoPro",
   },
   description:
-    "Transforma tu espacio con DecoraModerna. Servicios de diseño de interiores online, asesoría personalizada, moodboards, renders 3D y decoración a medida para hogares y espacios comerciales.",
+    "Transforma tu espacio con InteriorismoPro. Servicios de diseño de interiores online, asesoría personalizada, moodboards, renders 3D y decoración a medida para hogares y espacios comerciales.",
   keywords: [
     "diseño de interiores",
     "interiorismo online",
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     "home staging",
     "diseño de espacios comerciales",
     "decoración moderna",
-    "DecoraModerna",
+    "InteriorismoPro",
   ],
-  authors: [{ name: "DecoraModerna" }],
-  creator: "DecoraModerna",
-  publisher: "DecoraModerna",
+  authors: [{ name: "InteriorismoPro" }],
+  creator: "InteriorismoPro",
+  publisher: "InteriorismoPro",
   robots: "index, follow",
 };
 

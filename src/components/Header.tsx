@@ -61,14 +61,14 @@ export default function Header() {
           >
             <Image
               src="/logo.png"
-              alt="logo"
+              alt={t("logoAlt")}
               width={60}
               height={36}
               className="object-contain"
             />
             <Image
               src="/title.png"
-              alt="secure"
+              alt={t("titleAlt")}
               width={210}
               height={28}
               className="object-contain hidden sm:block"
@@ -200,12 +200,12 @@ export default function Header() {
               </div>
               <div className="space-y-1">
                 <p className="font-bold text-slate-800 text-lg">{t("emptyCart")}</p>
-                <p className="text-xs font-medium text-slate-500">Agrega servicios o productos para continuar.</p>
+                <p className="text-xs font-medium text-slate-500">{t("emptyCartSubtext")}</p>
               </div>
             </div>
           ) : (
             items.map((item, index) => {
-              const itemTitle = item.service?.title || "Servicio de Decoración";
+              const itemTitle = item.service?.title || t("defaultServiceTitle");
               const itemImage = "/logo.png";
 
               return (
@@ -277,8 +277,8 @@ export default function Header() {
           <div className="p-6 border-t border-slate-200 bg-white space-y-4">
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs text-slate-500">
-                <span>Envío / Impuestos</span>
-                <span>Calculado en checkout</span>
+                <span>{t("shippingTaxes")}</span>
+                <span>{t("calculatedAtCheckout")}</span>
               </div>
               <div className="flex justify-between text-lg font-bold text-slate-900">
                 <span>{t("total")}</span>
@@ -292,7 +292,7 @@ export default function Header() {
               onClick={() => setIsCartOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-4 px-5 bg-[#ffeaa7] hover:bg-[#f3de96] text-slate-900 font-bold rounded-full transition-all duration-200 active:scale-95 text-xs uppercase tracking-wider"
             >
-              <span>Ver el carrito</span>
+              <span>{t("viewCart")}</span>
               <ArrowRight size={16} />
             </Link>
 
@@ -302,7 +302,7 @@ export default function Header() {
               onClick={() => setIsCartOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-4 px-5 bg-[#ff7675] hover:bg-[#e66767] text-white font-bold rounded-full transition-all duration-200 active:scale-95 text-xs uppercase tracking-wider"
             >
-              <span>Ir a Pagar</span>
+              <span>{t("checkout")}</span>
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -313,7 +313,7 @@ export default function Header() {
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 bg-slate-50 flex flex-col md:hidden">
           <div className="flex items-center justify-between p-6 bg-white border-b border-slate-200">
-            <span className="font-bold text-2xl text-slate-900">Menú</span>
+            <span className="font-bold text-2xl text-slate-900">{t("mobileMenuTitle")}</span>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="p-2.5 rounded-full bg-slate-100 text-slate-800 hover:bg-[#ffeaa7] transition-all duration-200 active:scale-90"

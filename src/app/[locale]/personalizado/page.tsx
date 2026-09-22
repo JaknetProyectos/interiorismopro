@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 import { FileText, User, Mail, Hash, DollarSign, FolderOpenIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useAlert } from "@/context/AlertContext";
+import { toast } from "sonner";
 
 export default function CustomProductPage() {
   const { addItem } = useCart();
   const t = useTranslations("CustomProduct");
-  const { showAlert } = useAlert()
 
   const [form, setForm] = useState({
     folio: "",
@@ -31,10 +31,8 @@ export default function CustomProductPage() {
 
     if (!form.folio || !form.total || !form.nombre || !form.email) {
 
-      showAlert({
-        title: "Error",
-        message: t("alerts.requiredFields")
-      })
+      toast.error(t("alerts.requiredFields"))
+
       return;
     }
 
@@ -51,10 +49,7 @@ export default function CustomProductPage() {
       }
     });
 
-    showAlert({
-      title: t("alerts.addedToCart"),
-      message: ""
-    })
+    toast.success(t("alerts.addedToCart"))
 
     setForm({
       folio: "",

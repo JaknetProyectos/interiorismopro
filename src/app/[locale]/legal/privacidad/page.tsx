@@ -3,30 +3,17 @@
 import { useLocale } from "next-intl";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LegalStyle from "@/components/LegalStyle";
 
 function LegalEs() {
     return (
         <div className="legal-container">
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        .legal-container {
-          color: #1a1a1a;
-          line-height: 1.6;
-          font-family: sans-serif;
-        }
-        .legal-container h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
-        .legal-container h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #3048ab; }
-        .legal-container h3 { font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; }
-        .legal-container p { margin-bottom: 1.2rem; text-align: justify; }
-        .legal-container ul { margin-bottom: 1.2rem; padding-left: 1.5rem; list-style-type: disc; }
-        .legal-container li { margin-bottom: 0.5rem; }
-        .legal-container section { margin-bottom: 3rem; }
-      `}} />
+            <LegalStyle />
 
             <section>
                 <h1 id="aviso-de-privacidad-integral">Aviso de Privacidad Integral</h1>
                 <p><strong>MAYEDA, S.A. DE C.V.</strong>  </p>
-                <p>AVENIDA PRESIDENTE MASARYK, N° 178, DEP. 303, COLONIA POLANCO V SECCION, ALCALDIA MIGUEL HIDALGO, C.P. 11560, ENTIDAD FEDERATIVA CIUDAD DE MÉXICO.<br />informacion@decoramoderna.com          </p>
+                <p>AVENIDA PRESIDENTE MASARYK, N° 178, DEP. 303, COLONIA POLANCO V SECCION, ALCALDIA MIGUEL HIDALGO, C.P. 11560, ENTIDAD FEDERATIVA CIUDAD DE MÉXICO.<br />cuentanos@interiorismopro.com          </p>
                 <p><strong>1. Identidad y responsabilidad</strong><br />MAYEDA, S.A. DE C.V. (“MAYEDA”), como persona moral constituida bajo las leyes mexicanas, asume la máxima responsabilidad en el uso, resguardo, transferencia y protección de los datos personales proporcionados por sus usuarios, clientes y visitantes, conforme a lo dispuesto en los artículos 15 y 16 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), su Reglamento y demás disposiciones correlativas aplicables.<br /><strong>2. Finalidades del tratamiento de datos</strong><br />El tratamiento de los datos personales que recaba MAYEDA tiene como eje rector la provisión segura, eficiente y personalizada de los servicios de diseño de interiores ofertados en línea.<br />Las finalidades son:  </p>
                 <ol>
                     <li>Dar cumplimiento a la solicitud, contratación, diseño, desarrollo y entrega de los servicios virtuales ofertados.  </li>
@@ -44,7 +31,7 @@ function LegalEs() {
                     <li>Prestadores de servicios que respaldan tecnologías de hosting, almacenamiento, mensajería y gestión de proyectos, bajo clausulados estrictos de confidencialidad y protección.  </li>
                     <li>Proveedores de sistemas de pago para la correcta validación de transacciones comerciales y procesamientos fiscales; en este supuesto, se aclara que MAYEDA no almacena datos financieros, siendo responsabilidad exclusiva del proveedor la seguridad y manejo de dicha información.  </li>
                     <li>Autoridades administrativas, regulatorias o judiciales mexicanas, si así lo exige la ley o se emite orden fundada.<br />NO se venderán, rentarán ni publicarán datos personales a terceros ajenos a la prestación y mejora del servicio contratado.<br /><strong>5. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</strong>  </li>
-                    <li><strong>Cómo ejercerlos:</strong> enviar solicitud por correo electrónico a la dirección de MAYEDA designada para derechos de privacidad informacion@decoramoderna.com        .  </li>
+                    <li><strong>Cómo ejercerlos:</strong> enviar solicitud por correo electrónico a la dirección de MAYEDA designada para derechos de privacidad cuentanos@interiorismopro.com        .  </li>
                     <li><strong>Plazos</strong>: MAYEDA deberá dar respuesta a la solicitud de derechos ARCO dentro de un plazo máximo de 20 días hábiles a partir de la fecha en que la solicitud se haya recibido correctamente. Si por alguna razón se requiere ampliar el plazo para atender la solicitud, MAYEDA informará al titular dentro de los primeros 5 días hábiles señalando la nueva fecha para la resolución, sin exceder de 10 días hábiles adicionales.  </li>
                     <li><strong>Extinción y supresión</strong>: la cancelación de datos se ajusta a la normativa aplicable y a las finalidades autorizadas; ante solicitudes de supresión total, MAYEDA evaluará la viabilidad de retención conforme a obligaciones fiscales y contractuales.  </li>
                     <li><strong>Excepciones:</strong> cuando la conservación de datos sea necesaria para cumplir obligaciones legales, resolver disputas o prevenir fraudes, podrá conservarse la información de forma limitada incluso tras la solicitud de cancelación, hasta cumplir con dichas finalidades.<br /><strong>6. Uso de Cookies y tecnologías de rastreo</strong><br />Este sitio web puede utilizar cookies y otras tecnologías de rastreo, propias y de terceros, con la finalidad de facilitar la navegación, analizar tendencias, administrar la página, identificar preferencias de los usuarios, así como personalizar la experiencia de navegación y mejorar los servicios ofertados.<br />Las cookies permiten recolectar datos como:  </li>
@@ -67,26 +54,13 @@ function LegalEs() {
 function LegalEn() {
     return (
         <div className="legal-container">
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        .legal-container {
-          color: #1a1a1a;
-          line-height: 1.6;
-          font-family: sans-serif;
-        }
-        .legal-container h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
-        .legal-container h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #3048ab; }
-        .legal-container h3 { font-size: 1.1rem; font-weight: 700; margin-top: 1.5rem; }
-        .legal-container p { margin-bottom: 1.2rem; text-align: justify; }
-        .legal-container ul { margin-bottom: 1.2rem; padding-left: 1.5rem; list-style-type: disc; }
-        .legal-container li { margin-bottom: 0.5rem; }
-      `}} />
+            <LegalStyle />
 
             <section>
 
                 <h1 id="comprehensive-privacy-notice">Comprehensive Privacy Notice</h1>
                 <p><strong>MAYEDA, S.A. DE C.V.</strong></p>
-                <p>AVENIDA PRESIDENTE MASARYK, NO. 178, APT. 303, POLANCO V SECTION, MIGUEL HIDALGO BOROUGH, ZIP CODE 11560, MEXICO CITY.<br />informacion@decoramoderna.com</p>
+                <p>AVENIDA PRESIDENTE MASARYK, NO. 178, APT. 303, POLANCO V SECTION, MIGUEL HIDALGO BOROUGH, ZIP CODE 11560, MEXICO CITY.<br />cuentanos@interiorismopro.com</p>
 
                 <p><strong>1. Identity and Responsibility</strong><br />
                     MAYEDA, S.A. DE C.V. (“MAYEDA”), as a legal entity incorporated under Mexican law, assumes the highest responsibility regarding the use, safeguarding, transfer, and protection of the personal data provided by its users, clients, and visitors, in accordance with Articles 15 and 16 of the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP), its Regulations, and other applicable related provisions.
@@ -137,7 +111,7 @@ function LegalEn() {
                         <br /><strong>5. ARCO Rights (Access, Rectification, Cancellation, and Objection)</strong>
                     </li>
 
-                    <li><strong>How to exercise them:</strong> submit a request via email to MAYEDA’s designated privacy rights address: informacion@decoramoderna.com.</li>
+                    <li><strong>How to exercise them:</strong> submit a request via email to MAYEDA’s designated privacy rights address: cuentanos@interiorismopro.com.</li>
 
                     <li><strong>Deadlines:</strong> MAYEDA must respond to ARCO rights requests within a maximum period of 20 business days from the date the request is properly received. If, for any reason, an extension is required to process the request, MAYEDA will notify the data subject within the first 5 business days, indicating the new resolution date, which may not exceed an additional 10 business days.</li>
 
@@ -187,7 +161,7 @@ export default function LegalPage() {
     const locale = useLocale();
 
     return (
-        <div className="min-h-screen flex flex-col bg-white">
+        <div className="min-h-screen mt-20 flex flex-col bg-white">
             <main className="flex-grow container mx-auto px-6 py-20 max-w-4xl">
                 {locale === "es" ? <LegalEs /> : <LegalEn />}
             </main>
