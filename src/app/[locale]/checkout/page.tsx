@@ -20,7 +20,7 @@ import { EmailItem } from "@/types/cart-item";
 import { ConfirmRequestBody } from "../api/confirm/route";
 import { formatPrice } from "@/lib/format-price";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Coupon {
   code: string;
@@ -33,11 +33,15 @@ const AVAILABLE_COUPONS: Coupon[] = [
   { code: "INTERIOR500", type: "fixed", value: 500 },
 ];
 
+const VAT_RATE = 0.16; // 16% de IVA
+
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, total: subtotal, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
+  const [successOrderId, setSuccessOrderId] = useState<string | null>(null);
   const t = useTranslations("checkoutPage");
+  const locale = useLocale();
 
   // Estado de Cupones
   const [couponInput, setCouponInput] = useState("");
@@ -68,7 +72,7 @@ export default function CheckoutPage() {
     notes: "",
   });
 
-  // Cálculo de Descuentos y Total Final
+  // Cálculo de Descuentos, IVA y Total Final
   const discountAmount = useMemo(() => {
     if (!appliedCoupon) return 0;
     if (appliedCoupon.type === "percent") {
@@ -77,12 +81,22 @@ export default function CheckoutPage() {
     return Math.min(appliedCoupon.value, subtotal);
   }, [subtotal, appliedCoupon]);
 
-  const finalTotal = useMemo(() => {
+  const netTotal = useMemo(() => {
     return Math.max(0, subtotal - discountAmount);
   }, [subtotal, discountAmount]);
 
+  const vatAmount = useMemo(() => {
+    return netTotal * VAT_RATE;
+  }, [netTotal]);
+
+  const finalTotal = useMemo(() => {
+    return netTotal + vatAmount;
+  }, [netTotal, vatAmount]);
+
   // Manejo de cambios en los inputs
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -181,6 +195,7 @@ export default function CheckoutPage() {
           estado: formData.estado,
           cp: formData.cp,
         },
+        locale: locale,
         notes: formData.notes || undefined,
       };
 
@@ -191,6 +206,7 @@ export default function CheckoutPage() {
       });
 
       toast.success(t("toasts.paymentSuccess", { orderId: payResult.orderId }));
+      setSuccessOrderId(payResult.orderId);
       clearCart();
 
     } catch (error: any) {
@@ -200,9 +216,43 @@ export default function CheckoutPage() {
     }
   };
 
+  // Pantalla de Compra Exitosa
+  if (successOrderId) {
+    return (
+      <div className="min-h-[60vh] mt-20 flex flex-col items-center justify-center p-6 text-center max-w-lg mx-auto my-12 bg-white border border-gray-100 rounded-3xl shadow-sm">
+        <CheckCircle2 className="w-16 h-16 text-[#06d6a0] mb-4 animate-bounce" />
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{t("success.title")}</h2>
+        <p className="text-gray-600 mb-6 text-sm">{t("success.description")}</p>
+        
+        <div className="bg-teal-50 border border-teal-100 p-4 rounded-2xl w-full mb-6">
+          <p className="text-xs text-teal-600 font-bold uppercase tracking-wider mb-1">
+            {t("success.orderIdLabel")}
+          </p>
+          <p className="text-xl font-mono font-bold text-gray-800">{successOrderId}</p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full">
+          <Link
+            href="/cart"
+            className="flex-1 px-6 py-3 border border-gray-200 text-gray-700 hover:bg-gray-50 font-medium rounded-xl transition-colors text-center text-sm"
+          >
+            {t("returnToCart")}
+          </Link>
+          <Link
+            href="/"
+            className="flex-1 px-6 py-3 bg-[#ff6b6b] hover:bg-[#ff5252] text-white font-medium rounded-xl shadow-md transition-colors text-center text-sm"
+          >
+            {t("success.goHome")}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Pantalla de Carrito Vacío
   if (items.length === 0) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center p-4 text-center">
+      <div className="min-h-[60vh] mt-20 flex flex-col items-center justify-center p-4 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("emptyTitle")}</h2>
         <p className="text-gray-500 mb-6">{t("emptyDescription")}</p>
         <Link
@@ -216,7 +266,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-6xl mt-20 mx-auto px-4 py-10">
       {/* Header */}
       <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
         <Link href="/cart" className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 transition-colors">
@@ -363,7 +413,7 @@ export default function CheckoutPage() {
 
             {/* Input de Cupón */}
             <div className="border-t border-gray-100 pt-4">
-              <label className="block text-xs font-semibold text-gray-600 mb-2 flex items-center gap-1">
+              <label className="text-xs font-semibold text-gray-600 mb-2 flex items-center gap-1">
                 <Tag className="w-3.5 h-3.5 text-[#06d6a0]" /> {t("couponLabel")}
               </label>
               <div className="flex gap-2">
@@ -405,6 +455,10 @@ export default function CheckoutPage() {
                   <span>- {formatPrice(discountAmount)} MXN</span>
                 </div>
               )}
+              <div className="flex justify-between text-gray-600">
+                <span>{t("vat")}</span>
+                <span>{formatPrice(vatAmount)} MXN</span>
+              </div>
               <div className="flex justify-between items-center text-base font-bold text-gray-900 border-t border-gray-100 pt-3">
                 <span>{t("totalToPay")}</span>
                 <span className="text-2xl font-black text-[#ff6b6b]"> {formatPrice(finalTotal)} MXN</span>

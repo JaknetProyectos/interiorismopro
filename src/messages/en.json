@@ -62,67 +62,74 @@
     "securityNotice": "Encrypted and safe checkout. Coupon codes can be applied in the next step."
   },
   "checkoutPage": {
-    "emptyTitle": "No items ready for payment",
-    "emptyDescription": "Please head back to your cart and add design services before attempting checkout.",
-    "returnToCart": "Back to Shopping Cart",
-    "secureBadge": "256-Bit Encrypted Payment",
-    "optional": "Optional",
-    "defaultServiceTitle": "Design Package",
-    "summaryTitle": "Order Overview",
-    "qtyLabel": "Qty",
-    "couponLabel": "Have a promo code?",
-    "couponPlaceholder": "e.g., PRO10",
-    "applyCoupon": "Apply Code",
-    "couponAppliedBadge": "Promo code {code} active",
-    "removeCoupon": "Remove Code",
+    "emptyTitle": "Your cart is empty",
+    "emptyDescription": "Add some products or services before proceeding to payment.",
+    "returnToCart": "Back to Cart",
+    "secureBadge": "100% Secure Payment",
+    "optional": "optional",
+    "notesLabel": "Additional notes",
+    "notesPlaceholder": "Special instructions for your order...",
+    "summaryTitle": "Order Summary",
+    "qtyLabel": "Qty.",
+    "couponLabel": "Discount coupon",
+    "couponPlaceholder": "Ex: PRO10",
+    "applyCoupon": "Apply",
+    "couponAppliedBadge": "Coupon {code} applied",
+    "removeCoupon": "Remove",
     "subtotal": "Subtotal",
-    "discount": "Savings",
-    "totalToPay": "Final total",
-    "processingPayment": "Processing transaction...",
+    "discount": "Discount",
+    "vat": "VAT (16%)",
+    "totalToPay": "Total to pay",
+    "processingPayment": "Processing payment...",
     "payButton": "Pay {amount} MXN",
-    "termsNotice": "By completing this order, you confirm acceptance of our terms and privacy guidelines.",
-    "notesLabel": "Project directions or specifications",
-    "notesPlaceholder": "Add custom guidelines for your designer or architect...",
+    "termsNotice": "By making the payment, you accept our terms and conditions.",
+    "defaultServiceTitle": "Service",
     "contactSection": {
-      "title": "Contact Details",
+      "title": "Contact Information",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",
-      "phone": "Phone Number",
-      "company": "Company Name",
-      "companyPlaceholder": "Your business or studio name"
+      "phone": "Phone",
+      "company": "Company",
+      "companyPlaceholder": "Company name"
     },
     "addressSection": {
-      "title": "Billing Address",
-      "street": "Street Address",
-      "suite": "Apartment, Suite, or District",
+      "title": "Shipping / Billing Address",
+      "street": "Street address",
+      "suite": "Apartment, suite, etc.",
       "city": "City",
-      "state": "State / Region",
-      "zip": "Postal / ZIP Code",
+      "state": "State / Province",
+      "zip": "ZIP / Postal code",
       "country": "Country",
       "countries": {
-        "MX": "Mexico (MX)",
-        "US": "United States (US)",
-        "ES": "Spain (ES)"
+        "MX": "Mexico",
+        "US": "United States",
+        "ES": "Spain"
       }
     },
     "paymentSection": {
-      "title": "Payment Method",
-      "cardName": "Cardholder Name",
-      "cardNamePlaceholder": "Name exactly as printed on card",
-      "cardNumber": "Card Number",
-      "cardMonth": "Expiry Month (MM)",
-      "cardYear": "Expiry Year (YY)",
-      "cvv": "Security Code (CVV)"
+      "title": "Card Details",
+      "cardName": "Name on card",
+      "cardNamePlaceholder": "As it appears on card",
+      "cardNumber": "Card number",
+      "cardMonth": "Exp. month",
+      "cardYear": "Exp. year",
+      "cvv": "CVV / CVC"
     },
     "toasts": {
-      "enterCoupon": "Please enter a promotional code",
-      "couponApplied": "Promo code \"{code}\" applied successfully",
-      "invalidCoupon": "The code you entered is invalid or expired",
-      "emptyCart": "Your shopping cart contains no items",
-      "paymentDeclined": "The payment transaction was declined.",
-      "paymentSuccess": "Payment complete. Reference #{orderId}",
-      "paymentError": "An error occurred while processing your request"
+      "enterCoupon": "Please enter a coupon code",
+      "couponApplied": "Coupon {code} applied successfully!",
+      "invalidCoupon": "Invalid coupon code",
+      "emptyCart": "The cart is empty",
+      "paymentDeclined": "Payment was declined. Please try again.",
+      "paymentSuccess": "Payment successful! Order #{orderId}",
+      "paymentError": "An error occurred while processing the payment"
+    },
+    "success": {
+      "title": "Purchase Successful!",
+      "description": "We have successfully received your payment. An email confirmation has been sent to you.",
+      "orderIdLabel": "Order ID",
+      "goHome": "Back to Home"
     }
   },
   "CustomProduct": {
@@ -394,6 +401,70 @@
       "contactButton": "Reach Out",
       "phoneLabel": "Contact Us",
       "imageAlt": "Decorative visual element"
+    }
+  },
+  "Emails": {
+    "contactEmail": {
+      "errors": {
+        "missingFields": "Missing required fields",
+        "internalError": "Internal error sending the message"
+      },
+      "admin": {
+        "title": "New message received",
+        "nameLabel": "Name:",
+        "emailLabel": "Email:",
+        "phoneLabel": "Phone:",
+        "notProvided": "Not provided",
+        "subjectLabel": "Subject",
+        "messageLabel": "Message",
+        "subject": "New contact: {asunto}"
+      },
+      "customer": {
+        "title": "We have received your message",
+        "greetingStart": "Hello",
+        "greetingMid": ", thank you for contacting",
+        "greetingEnd": ". Our team will review your request and get back to you as soon as possible.",
+        "subjectLabel": "Subject",
+        "messageLabel": "Message",
+        "footerText": "If you need to add more information, you can reply directly to this email.",
+        "signature": "— InteriorismoPro Team",
+        "subject": "We have received your message"
+      }
+    },
+    "checkoutEmail": {
+      "errors": {
+        "incompleteData": "Incomplete confirmation data.",
+        "sendFailed": "Payment was successful but sending the confirmation email failed."
+      },
+      "successMessage": "Emails sent successfully.",
+      "customer": {
+        "receipt": "Purchase receipt",
+        "thanks": "Thank you for your payment!",
+        "order": "Order:",
+        "clientLabel": "Customer:",
+        "emailLabel": "Email:",
+        "addressLabel": "Address:",
+        "conceptLabel": "Item",
+        "qtyLabel": "Qty.",
+        "totalLabel": "Total",
+        "totalPaid": "Total paid:",
+        "supportText": "If you have questions about this charge, contact us at",
+        "subject": "Purchase confirmation - {orderId}"
+      },
+      "business": {
+        "title": "New Sale Registered",
+        "order": "Order:",
+        "clientData": "Customer Data:",
+        "nameLabel": "Name:",
+        "emailLabel": "Email:",
+        "phoneLabel": "Phone:",
+        "addressLabel": "Address:",
+        "zipLabel": "ZIP",
+        "notesLabel": "Notes:",
+        "itemsSummary": "Items Summary:",
+        "totalLabel": "Total:",
+        "subject": "New sale - {orderId}"
+      }
     }
   }
 }

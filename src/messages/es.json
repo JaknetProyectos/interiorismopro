@@ -62,67 +62,74 @@
     "securityNotice": "Proceso de compra seguro. Podrás ingresar tu cupón en el siguiente paso."
   },
   "checkoutPage": {
-    "emptyTitle": "Sin elementos para procesar",
-    "emptyDescription": "Regresa al carrito y añade servicios antes de realizar el pago.",
-    "returnToCart": "Regresar al Carrito",
-    "secureBadge": "Procesamiento Seguro 256-bit",
-    "optional": "Opcional",
-    "defaultServiceTitle": "Servicio",
-    "summaryTitle": "Resumen de la Orden",
+    "emptyTitle": "Tu carrito está vacío",
+    "emptyDescription": "Agrega algunos productos o servicios antes de proceder al pago.",
+    "returnToCart": "Volver al carrito",
+    "secureBadge": "Pago 100% Seguro",
+    "optional": "opcional",
+    "notesLabel": "Notas adicionales",
+    "notesPlaceholder": "Instrucciones especiales para tu pedido...",
+    "summaryTitle": "Resumen del pedido",
     "qtyLabel": "Cant.",
-    "couponLabel": "¿Cuentas con un cupón?",
-    "couponPlaceholder": "Ejemplo: PRO10",
-    "applyCoupon": "Validar",
-    "couponAppliedBadge": "Se aplicó el cupón {code}",
-    "removeCoupon": "Eliminar",
+    "couponLabel": "Cupón de descuento",
+    "couponPlaceholder": "Ej: PRO10",
+    "applyCoupon": "Aplicar",
+    "couponAppliedBadge": "Cupón {code} aplicado",
+    "removeCoupon": "Quitar",
     "subtotal": "Subtotal",
     "discount": "Descuento",
-    "totalToPay": "Monto final",
-    "processingPayment": "Procesando la transacción...",
-    "payButton": "Abonar {amount} MXN",
-    "termsNotice": "Al hacer clic confirmas la aceptación de nuestras políticas y condiciones.",
-    "notesLabel": "Instrucciones del proyecto",
-    "notesPlaceholder": "Notas relevantes para tu diseñador o arquitecto...",
+    "vat": "IVA (16%)",
+    "totalToPay": "Total a pagar",
+    "processingPayment": "Procesando pago...",
+    "payButton": "Pagar {amount} MXN",
+    "termsNotice": "Al realizar el pago, aceptas nuestros términos y condiciones.",
+    "defaultServiceTitle": "Servicio",
     "contactSection": {
-      "title": "Información de Contacto",
+      "title": "Información de contacto",
       "firstName": "Nombre",
-      "lastName": "Apellidos",
-      "email": "Dirección de Correo",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
       "phone": "Teléfono",
       "company": "Empresa",
-      "companyPlaceholder": "Nombre de tu estudio o empresa"
+      "companyPlaceholder": "Nombre de la empresa"
     },
     "addressSection": {
-      "title": "Domicilio",
-      "street": "Calle y Número",
-      "suite": "Colonia, Interior o Depto.",
+      "title": "Dirección de envío / facturación",
+      "street": "Calle y número",
+      "suite": "Departamento, suite, etc.",
       "city": "Ciudad",
       "state": "Estado / Provincia",
       "zip": "Código Postal",
       "country": "País",
       "countries": {
-        "MX": "México (MX)",
-        "US": "Estados Unidos (US)",
-        "ES": "España (ES)"
+        "MX": "México",
+        "US": "Estados Unidos",
+        "ES": "España"
       }
     },
     "paymentSection": {
-      "title": "Datos del Pago",
-      "cardName": "Titular de la tarjeta",
-      "cardNamePlaceholder": "Nombre grabado en el plástico",
+      "title": "Detalles de la tarjeta",
+      "cardName": "Nombre en la tarjeta",
+      "cardNamePlaceholder": "Como aparece en la tarjeta",
       "cardNumber": "Número de tarjeta",
-      "cardMonth": "Mes Exp. (MM)",
-      "cardYear": "Año Exp. (AA)",
-      "cvv": "CVV"
+      "cardMonth": "Mes de exp.",
+      "cardYear": "Año de exp.",
+      "cvv": "CVV / CVC"
     },
     "toasts": {
-      "enterCoupon": "Introduce un código promocional",
-      "couponApplied": "Cupón \"{code}\" ingresado con éxito",
-      "invalidCoupon": "El código es incorrecto o venció",
-      "emptyCart": "Tu carrito no contiene elementos",
-      "paymentDeclined": "El pago no fue autorizado.",
-      "paymentSuccess": "Pago confirmado. Orden #{orderId}",
-      "paymentError": "Surgió un error al procesar la orden"
+      "enterCoupon": "Por favor ingresa un código de cupón",
+      "couponApplied": "¡Cupón {code} aplicado con éxito!",
+      "invalidCoupon": "Cupón no válido",
+      "emptyCart": "El carrito está vacío",
+      "paymentDeclined": "El pago fue rechazado. Inténtalo de nuevo.",
+      "paymentSuccess": "¡Pago realizado con éxito! Pedido #{orderId}",
+      "paymentError": "Ocurrió un error al procesar el pago"
+    },
+    "success": {
+      "title": "¡Compra Exitosa!",
+      "description": "Hemos recibido tu pago correctamente. Te enviamos un correo con la confirmación de tu pedido.",
+      "orderIdLabel": "ID de Compra",
+      "goHome": "Volver al Inicio"
     }
   },
   "CustomProduct": {
@@ -394,6 +401,70 @@
       "contactButton": "Ponte en contacto",
       "phoneLabel": "Contáctanos",
       "imageAlt": "Recurso gráfico decorativo"
+    }
+  },
+  "Emails": {
+    "contactEmail": {
+      "errors": {
+        "missingFields": "Faltan campos obligatorios",
+        "internalError": "Error interno al enviar el mensaje"
+      },
+      "admin": {
+        "title": "Nuevo mensaje recibido",
+        "nameLabel": "Nombre:",
+        "emailLabel": "Email:",
+        "phoneLabel": "Teléfono:",
+        "notProvided": "No proporcionado",
+        "subjectLabel": "Asunto",
+        "messageLabel": "Mensaje",
+        "subject": "Nuevo contacto: {asunto}"
+      },
+      "customer": {
+        "title": "Hemos recibido tu mensaje",
+        "greetingStart": "Hola",
+        "greetingMid": ", gracias por contactar a",
+        "greetingEnd": ". Nuestro equipo revisará tu solicitud y te responderá lo antes posible.",
+        "subjectLabel": "Asunto",
+        "messageLabel": "Mensaje",
+        "footerText": "Si necesitas agregar más información, puedes responder directamente a este correo.",
+        "signature": "— Equipo InteriorismoPro",
+        "subject": "Hemos recibido tu mensaje"
+      }
+    },
+    "checkoutEmail": {
+      "errors": {
+        "incompleteData": "Datos de confirmación incompletos.",
+        "sendFailed": "El pago fue exitoso pero falló el envío del correo de confirmación."
+      },
+      "successMessage": "Correos enviados exitosamente.",
+      "customer": {
+        "receipt": "Comprobante de compra",
+        "thanks": "¡Gracias por tu pago!",
+        "order": "Orden:",
+        "clientLabel": "Cliente:",
+        "emailLabel": "Email:",
+        "addressLabel": "Dirección:",
+        "conceptLabel": "Concepto",
+        "qtyLabel": "Cant.",
+        "totalLabel": "Total",
+        "totalPaid": "Total pagado:",
+        "supportText": "Si tienes dudas sobre este cargo contáctanos en",
+        "subject": "Confirmación de compra - {orderId}"
+      },
+      "business": {
+        "title": "Nueva Venta Registrada",
+        "order": "Orden:",
+        "clientData": "Datos del Cliente:",
+        "nameLabel": "Nombre:",
+        "emailLabel": "Email:",
+        "phoneLabel": "Teléfono:",
+        "addressLabel": "Dirección:",
+        "zipLabel": "CP",
+        "notesLabel": "Notas:",
+        "itemsSummary": "Resumen de Items:",
+        "totalLabel": "Total:",
+        "subject": "Nueva venta - {orderId}"
+      }
     }
   }
 }

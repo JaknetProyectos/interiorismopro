@@ -1,12 +1,13 @@
 import { formatPrice } from "@/lib/format-price";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const EMAIL_BANNER =
   "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 const EMAIL_SUPPORT = "cuentanos@interiorismopro.com";
-const EMAIL_LOGO = "https://vexora.com.mx/title.png";
+const EMAIL_LOGO = "https://interiorismopro.com/email.png";
 
 export interface EmailItem {
   id: string;
@@ -18,6 +19,7 @@ export interface EmailItem {
 }
 
 export interface ConfirmRequestBody {
+  locale: string;
   orderId: string;
   amount: number;
   items: EmailItem[];
@@ -38,7 +40,8 @@ function buildCustomerHTML(
   orderId: string,
   customer: ConfirmRequestBody["customer"],
   items: EmailItem[],
-  total: number
+  total: number,
+  t: any
 ): string {
   const itemsRows = items
     .map(
@@ -46,10 +49,11 @@ function buildCustomerHTML(
       <tr>
         <td style="padding: 10px 0; border-bottom: 1px dashed #e4e4e7; text-align: left;">
           <strong style="color: #18181b; font-size: 13px;">${item.title || item.id}</strong>
-          ${item.description
-          ? `<br/><span style="color: #71717a; font-size: 11px;">${item.description}</span>`
-          : ""
-        }
+          ${
+            item.description
+              ? `<br/><span style="color: #71717a; font-size: 11px;">${item.description}</span>`
+              : ""
+          }
         </td>
         <td style="padding: 10px 0; border-bottom: 1px dashed #e4e4e7; text-align: center; color: #3f3f46; font-size: 13px;">
           ${item.quantity}
@@ -74,17 +78,17 @@ function buildCustomerHTML(
         </tr>
         <tr>
           <td style="padding: 24px 30px 12px 30px; text-align: center;">
-            <p style="margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #71717a; font-weight: 600;">Comprobante de compra</p>
-            <h2 style="margin: 6px 0 0 0; color: #09090b; font-size: 22px; font-weight: 800;">¡Gracias por tu pago!</h2>
-            <p style="margin: 4px 0 0 0; color: #71717a; font-size: 13px;">Orden: <strong>#${orderId}</strong></p>
+            <p style="margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #71717a; font-weight: 600;">${t("customer.receipt")}</p>
+            <h2 style="margin: 6px 0 0 0; color: #09090b; font-size: 22px; font-weight: 800;">${t("customer.thanks")}</h2>
+            <p style="margin: 4px 0 0 0; color: #71717a; font-size: 13px;">${t("customer.order")} <strong>#${orderId}</strong></p>
           </td>
         </tr>
         <tr>
           <td style="padding: 12px 30px;">
             <table width="100%" style="background-color: #fafafa; border-radius: 8px; padding: 12px; font-size: 12px; color: #3f3f46;">
-              <tr><td><strong>Cliente:</strong> ${customer.nombre} ${customer.apellido}</td></tr>
-              <tr><td><strong>Email:</strong> ${customer.email}</td></tr>
-              <tr><td><strong>Dirección:</strong> ${customer.direccion}, ${customer.ciudad}, ${customer.estado}</td></tr>
+              <tr><td><strong>${t("customer.clientLabel")}</strong> ${customer.nombre} ${customer.apellido}</td></tr>
+              <tr><td><strong>${t("customer.emailLabel")}</strong> ${customer.email}</td></tr>
+              <tr><td><strong>${t("customer.addressLabel")}</strong> ${customer.direccion}, ${customer.ciudad}, ${customer.estado}</td></tr>
             </table>
           </td>
         </tr>
@@ -93,9 +97,9 @@ function buildCustomerHTML(
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
               <thead>
                 <tr style="border-bottom: 2px solid #18181b; text-align: left; font-size: 11px; text-transform: uppercase; color: #71717a;">
-                  <th style="padding-bottom: 8px; text-align: left;">Concepto</th>
-                  <th style="padding-bottom: 8px; text-align: center;">Cant.</th>
-                  <th style="padding-bottom: 8px; text-align: right;">Total</th>
+                  <th style="padding-bottom: 8px; text-align: left;">${t("customer.conceptLabel")}</th>
+                  <th style="padding-bottom: 8px; text-align: center;">${t("customer.qtyLabel")}</th>
+                  <th style="padding-bottom: 8px; text-align: right;">${t("customer.totalLabel")}</th>
                 </tr>
               </thead>
               <tbody>${itemsRows}</tbody>
@@ -106,7 +110,7 @@ function buildCustomerHTML(
           <td style="padding: 12px 30px 24px 30px;">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td style="font-size: 15px; font-weight: bold; color: #09090b;">Total pagado:</td>
+                <td style="font-size: 15px; font-weight: bold; color: #09090b;">${t("customer.totalPaid")}</td>
                 <td style="font-size: 20px; font-weight: 900; color: #09090b; text-align: right;">
                   ${formatPrice(total)} MXN
                 </td>
@@ -121,7 +125,7 @@ function buildCustomerHTML(
         </tr>
         <tr>
           <td style="padding: 20px; text-align: center; background-color: #fafafa; font-size: 11px; color: #a1a1aa; border-top: 1px solid #f4f4f5;">
-            Si tienes dudas sobre este cargo contáctanos en <a href="mailto:${EMAIL_SUPPORT}" style="color: #71717a;">${EMAIL_SUPPORT}</a>
+            ${t("customer.supportText")} <a href="mailto:${EMAIL_SUPPORT}" style="color: #71717a;">${EMAIL_SUPPORT}</a>
           </td>
         </tr>
       </table>
@@ -134,7 +138,8 @@ function buildBusinessHTML(
   customer: ConfirmRequestBody["customer"],
   items: EmailItem[],
   total: number,
-  notes?: string
+  notes: string | undefined,
+  t: any
 ): string {
   const itemsRows = items
     .map(
@@ -155,20 +160,20 @@ function buildBusinessHTML(
   <html>
     <body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f5;">
       <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 24px; border-radius: 12px;">
-        <h3 style="margin-top: 0; color: #09090b;">Nueva Venta Registrada</h3>
-        <p style="font-size: 13px; color: #52525b;">Orden: <strong>#${orderId}</strong></p>
+        <h3 style="margin-top: 0; color: #09090b;">${t("business.title")}</h3>
+        <p style="font-size: 13px; color: #52525b;">${t("business.order")} <strong>#${orderId}</strong></p>
         <hr style="border: none; border-top: 1px solid #e4e4e7; margin: 16px 0;" />
-        <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #18181b;">Datos del Cliente:</h4>
-        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>Nombre:</strong> ${customer.nombre} ${customer.apellido}</p>
-        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>Email:</strong> ${customer.email}</p>
-        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>Teléfono:</strong> ${customer.telefono}</p>
-        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>Dirección:</strong> ${customer.direccion}, ${customer.ciudad}, ${customer.estado}, CP ${customer.cp}</p>
-        ${notes ? `<p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>Notas:</strong> ${notes}</p>` : ""}
+        <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #18181b;">${t("business.clientData")}</h4>
+        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>${t("business.nameLabel")}</strong> ${customer.nombre} ${customer.apellido}</p>
+        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>${t("business.emailLabel")}</strong> ${customer.email}</p>
+        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>${t("business.phoneLabel")}</strong> ${customer.telefono}</p>
+        <p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>${t("business.addressLabel")}</strong> ${customer.direccion}, ${customer.ciudad}, ${customer.estado}, ${t("business.zipLabel")} ${customer.cp}</p>
+        ${notes ? `<p style="font-size: 12px; color: #3f3f46; margin: 2px 0;"><strong>${t("business.notesLabel")}</strong> ${notes}</p>` : ""}
         <hr style="border: none; border-top: 1px solid #e4e4e7; margin: 16px 0;" />
-        <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #18181b;">Resumen de Items:</h4>
+        <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #18181b;">${t("business.itemsSummary")}</h4>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">${itemsRows}</table>
         <h3 style="text-align: right; margin-top: 16px; color: #09090b;">
-          Total: ${formatPrice(total)} MXN
+          ${t("business.totalLabel")} ${formatPrice(total)} MXN
         </h3>
       </div>
     </body>
@@ -176,39 +181,43 @@ function buildBusinessHTML(
 }
 
 export async function POST(req: NextRequest) {
+  let t;
   try {
     const body: ConfirmRequestBody = await req.json();
+    
+    // 1. Cargamos las traducciones usando el locale del body
+    t = await getTranslations({ locale: body.locale, namespace: "Emails.checkoutEmail" });
 
     if (!body.orderId || !body.customer?.email || !body.items) {
       return NextResponse.json(
-        { success: false, error: "Datos de confirmación incompletos." },
+        { success: false, error: t("errors.incompleteData") },
         { status: 400 }
       );
     }
 
-    const customerHTML = buildCustomerHTML(body.orderId, body.customer, body.items, body.amount);
-    const businessHTML = buildBusinessHTML(body.orderId, body.customer, body.items, body.amount, body.notes);
+    const customerHTML = buildCustomerHTML(body.orderId, body.customer, body.items, body.amount, t);
+    const businessHTML = buildBusinessHTML(body.orderId, body.customer, body.items, body.amount, body.notes, t);
 
     await Promise.all([
       resend.emails.send({
-        from: "InteriorismoPro <cuentanos@interiorismopro.com>",
+        from: `InteriorismoPro <${EMAIL_SUPPORT}>`,
         to: body.customer.email,
-        subject: `Confirmación de compra - ${body.orderId}`,
+        subject: t("customer.subject", { orderId: body.orderId }),
         html: customerHTML,
       }),
       resend.emails.send({
-        from: "InteriorismoPro <cuentanos@interiorismopro.com>",
-        to: "cuentanos@interiorismopro.com",
-        subject: `Nueva venta - ${body.orderId}`,
+        from: `InteriorismoPro <${EMAIL_SUPPORT}>`,
+        to: EMAIL_SUPPORT,
+        subject: t("business.subject", { orderId: body.orderId }),
         html: businessHTML,
       }),
     ]);
 
-    return NextResponse.json({ success: true, message: "Correos enviados exitosamente." });
+    return NextResponse.json({ success: true, message: t("successMessage") });
   } catch (error: any) {
     console.error("Error enviando correos en /api/confirm:", error);
     return NextResponse.json(
-      { success: false, error: "El pago fue exitoso pero falló el envío del correo de confirmación." },
+      { success: false, error: t ? t("errors.sendFailed") : "El pago fue exitoso pero falló el envío del correo de confirmación." },
       { status: 500 }
     );
   }
