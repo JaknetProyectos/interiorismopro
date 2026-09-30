@@ -1,5 +1,22 @@
 {
   "ContactPage": {
+    "messagePlaceholder": "Write your message here...",
+    "errors": {
+      "nameRequired": "Name is required.",
+      "nameMinLength": "Name must be at least 2 characters.",
+      "nameMaxLength": "Name cannot exceed 50 characters.",
+      "nameInvalid": "Name should only contain letters and spaces.",
+      "emailRequired": "Email address is required.",
+      "emailMaxLength": "Email cannot exceed 100 characters.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneRequired": "Phone number is required.",
+      "phoneMinLength": "Phone number must be at least 7 digits.",
+      "phoneMaxLength": "Phone number cannot exceed 20 characters.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "messageRequired": "Message is required.",
+      "messageMinLength": "Message must be at least 10 characters.",
+      "messageMaxLength": "Message cannot exceed 1000 characters."
+    },
     "heroEyebrow": "Get in Touch",
     "heroTitle": "Let’s craft your ideal space together",
     "heroDescription": "Share your project vision with us, and we will walk you through every step to turn your place into something remarkable, functional, and tailored.",
@@ -206,6 +223,19 @@
     },
     "defaultSubject": "Main hero form inquiry",
     "form": {
+      "errors": {
+        "nameRequired": "Name is required.",
+        "nameMinLength": "Name must be at least 2 characters.",
+        "nameMaxLength": "Name cannot exceed 50 characters.",
+        "nameInvalid": "Name should only contain letters and spaces.",
+        "emailRequired": "Email address is required.",
+        "emailMaxLength": "Email cannot exceed 100 characters.",
+        "emailInvalid": "Please enter a valid email address.",
+        "affairMaxLength": "Subject cannot exceed 100 characters.",
+        "messageRequired": "Message is required.",
+        "messageMinLength": "Message must be at least 10 characters.",
+        "messageMaxLength": "Message cannot exceed 1000 characters."
+      },
       "title": "Book your design consult whenever you're ready",
       "placeholders": {
         "name": "Name",

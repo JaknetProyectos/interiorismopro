@@ -1,5 +1,22 @@
 {
   "ContactPage": {
+    "messagePlaceholder": "Escribe tu mensaje aquí...",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio.",
+      "nameMinLength": "El nombre debe tener al menos 2 caracteres.",
+      "nameMaxLength": "El nombre no puede superar los 50 caracteres.",
+      "nameInvalid": "El nombre solo debe contener letras y espacios.",
+      "emailRequired": "El correo electrónico es obligatorio.",
+      "emailMaxLength": "El correo no puede superar los 100 caracteres.",
+      "emailInvalid": "Ingresa un correo electrónico válido.",
+      "phoneRequired": "El teléfono es obligatorio.",
+      "phoneMinLength": "El teléfono debe tener al menos 7 dígitos.",
+      "phoneMaxLength": "El teléfono no puede superar los 20 caracteres.",
+      "phoneInvalid": "Ingresa un número de teléfono válido.",
+      "messageRequired": "El mensaje es obligatorio.",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres.",
+      "messageMaxLength": "El mensaje no puede superar los 1000 caracteres."
+    },
     "heroEyebrow": "Ponte en contacto",
     "heroTitle": "Diseñemos juntos el espacio que sueñas",
     "heroDescription": "Envíanos tus ideas y te guiaremos en cada paso para transformar tu entorno en un lugar práctico, sofisticado y exclusivo.",
@@ -206,6 +223,19 @@
     },
     "defaultSubject": "Mensaje enviado desde la portada",
     "form": {
+      "errors": {
+        "nameRequired": "El nombre es obligatorio.",
+        "nameMinLength": "El nombre debe tener al menos 2 caracteres.",
+        "nameMaxLength": "El nombre no puede superar los 50 caracteres.",
+        "nameInvalid": "El nombre solo debe contener letras y espacios.",
+        "emailRequired": "El correo electrónico es obligatorio.",
+        "emailMaxLength": "El correo no puede superar los 100 caracteres.",
+        "emailInvalid": "Ingresa un correo electrónico válido.",
+        "affairMaxLength": "El asunto no puede superar los 100 caracteres.",
+        "messageRequired": "El mensaje es obligatorio.",
+        "messageMinLength": "El mensaje debe tener al menos 10 caracteres.",
+        "messageMaxLength": "El mensaje no puede superar los 1000 caracteres."
+      },
       "title": "Agenda tu sesión de diseño en el momento que gustes",
       "placeholders": {
         "name": "Nombre completo",
