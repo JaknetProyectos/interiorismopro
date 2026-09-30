@@ -219,7 +219,7 @@ export default function CheckoutPage() {
   // Pantalla de Compra Exitosa
   if (successOrderId) {
     return (
-      <div className="min-h-[60vh] mt-20 flex flex-col items-center justify-center p-6 text-center max-w-lg mx-auto my-12 bg-white border border-gray-100 rounded-3xl shadow-sm">
+      <div className="min-h-[60vh] mt-20 flex flex-col items-center justify-center p-6 text-center max-w-lg mx-auto mb-12 bg-white border border-gray-100 rounded-3xl shadow-sm">
         <CheckCircle2 className="w-16 h-16 text-[#06d6a0] mb-4 animate-bounce" />
         <h2 className="text-2xl font-bold text-gray-900 mb-2">{t("success.title")}</h2>
         <p className="text-gray-600 mb-6 text-sm">{t("success.description")}</p>

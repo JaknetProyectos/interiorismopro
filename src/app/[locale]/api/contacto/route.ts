@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const SUPPORT_EMAIL = "informacion@decoramoderna.com"
+const SUPPORT_EMAIL = "cuentanos@interiorismopro.com"
 
 export async function POST(req: Request) {
   let t;
